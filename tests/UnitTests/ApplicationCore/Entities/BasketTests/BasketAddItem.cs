@@ -35,6 +35,17 @@ namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.BasketTests
             Assert.Equal(_testQuantity * 2, firstItem.Quantity);
         }
 
+                [Fact]
+        public void IncrementsQuantityOfItemIfPresent_Duplicate()
+        {
+            var basket = new Basket(_buyerId);
+            basket.AddItem(_testCatalogItemId, _testUnitPrice, _testQuantity);
+            basket.AddItem(_testCatalogItemId, _testUnitPrice, _testQuantity);
+
+            var firstItem = basket.Items.Single();
+            Assert.Equal(_testQuantity * 2, firstItem.Quantity);
+        }
+
         [Fact]
         public void KeepsOriginalUnitPriceIfMoreItemsAdded()
         {
