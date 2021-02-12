@@ -52,5 +52,5 @@
 	}
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "dotnet restore"
+	"postCreateCommand": "dotnet restore eShopOnWeb.sln"
 }
